@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31EA0704-895E-4512-A62C-EA3FFDA7B794}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Xen</RootNamespace>
+    <AssemblyName>XenSDK</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <CodePage>65001</CodePage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="bin\postbuild.bat" externalConsole="True" pauseExternalConsole="True" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="UnityEditor">
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="PureMVC.DotNET.35">
+      <HintPath>..\..\..\..\lib\PureMVC.DotNET.35.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\..\..\..\lib\websocket-sharp\websocket-sharp\bin\Debug\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xen\Behaviour\AppBehaviour.cs" />
+    <Compile Include="Xen\Behaviour\EventDispatcherBehaviour.cs" />
+    <Compile Include="Xen\Behaviour\FormBehaviour.cs" />
+    <Compile Include="Xen\Behaviour\ModuleMainBehaviour.cs" />
+    <Compile Include="Xen\Data\DisplayObjectVO.cs" />
+    <Compile Include="Xen\Data\ResultVO.cs" />
+    <Compile Include="Xen\Data\SetupVO.cs" />
+    <Compile Include="Xen\Data\VO.cs" />
+    <Compile Include="Xen\Enum\AssetID.cs" />
+    <Compile Include="Xen\Enum\ErrorCode.cs" />
+    <Compile Include="Xen\Enum\ServiceType.cs" />
+    <Compile Include="Xen\Event\AppEvent.cs" />
+    <Compile Include="Xen\Event\EventDispatcher.cs" />
+    <Compile Include="Xen\Event\ServiceEvent.cs" />
+    <Compile Include="Xen\Event\TimerEvent.cs" />
+    <Compile Include="Xen\Interface\IAppEvent.cs" />
+    <Compile Include="Xen\Interface\IApplicationMediator.cs" />
+    <Compile Include="Xen\Interface\IApplicationProxy.cs" />
+    <Compile Include="Xen\Interface\IDataManager.cs" />
+    <Compile Include="Xen\Interface\IEventDispatcher.cs" />
+    <Compile Include="Xen\Interface\IForm.cs" />
+    <Compile Include="Xen\Interface\IModuleMain.cs" />
+    <Compile Include="Xen\Interface\IResponder.cs" />
+    <Compile Include="Xen\Interface\IService.cs" />
+    <Compile Include="Xen\Interface\IServiceConnection.cs" />
+    <Compile Include="Xen\Interface\IServiceRequest.cs" />
+    <Compile Include="Xen\Interface\IServiceResponse.cs" />
+    <Compile Include="Xen\Interface\IVO.cs" />
+    <Compile Include="Xen\MVC\Enum\NotificationType.cs" />
+    <Compile Include="Xen\MVC\Pattern\ApplicationMediator.cs" />
+    <Compile Include="Xen\MVC\Pattern\ApplicationProxy.cs" />
+    <Compile Include="Xen\MVC\AppFacade.cs" />
+    <Compile Include="Xen\Net\BaseService.cs" />
+    <Compile Include="Xen\Net\HTTPConnection.cs" />
+    <Compile Include="Xen\Net\Responder.cs" />
+    <Compile Include="Xen\Net\ServiceConnection.cs" />
+    <Compile Include="Xen\Net\ServiceRequest.cs" />
+    <Compile Include="Xen\Net\ServiceResponse.cs" />
+    <Compile Include="Xen\Net\WebSocketConnection.cs" />
+    <Compile Include="Xen\Resource\AssetManager.cs" />
+    <Compile Include="Xen\Resource\DataManager.cs" />
+    <Compile Include="Xen\Resource\ServiceManager.cs" />
+    <Compile Include="Xen\Resource\SettingManager.cs" />
+    <Compile Include="Xen\Resource\SoundManager.cs" />
+    <Compile Include="Xen\Resource\VOManager.cs" />
+    <Compile Include="Xen\Resource\XMLManager.cs" />
+    <Compile Include="Xen\Utils\ImageRotator.cs" />
+    <Compile Include="Xen\Utils\Timer.cs" />
+    <Compile Include="Xen\Utils\Tool.cs" />
+    <Compile Include="Xen\Utils\Tracer.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="Hierarchical" ResourceNamePolicy="MSBuild" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>
